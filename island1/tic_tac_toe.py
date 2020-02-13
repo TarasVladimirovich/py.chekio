@@ -2,7 +2,38 @@ from typing import List
 
 
 def checkio(game_result: List[str]) -> str:
-    return "D" or "X" or "O"
+    tmp3 = set()
+    tmp4 = set()
+
+    for i in range(3):
+        tmp = set(game_result[i])
+        tmp1 = set()
+
+        for y in range(3):
+            tmp1.add(game_result[y][i])
+            tmp4.add(game_result[i][2-i])
+            if i == y:
+                tmp3.add(game_result[i][y])
+
+        if len(tmp1) == 1:
+            if list(tmp1)[0] == ".":
+                continue
+            return list(tmp1)[0]
+
+        if len(tmp) == 1:
+            if list(tmp)[0] == ".":
+                continue
+            return list(tmp)[0]
+
+    if len(tmp3) == 1:
+        if list(tmp3)[0] == ".":
+            return "D"
+        return list(tmp3)[0]
+    if len(tmp4) == 1:
+        if list(tmp4)[0] == ".":
+            return "D"
+        return list(tmp4)[0]
+    return "D"
 
 
 if __name__ == '__main__':
