@@ -1,8 +1,5 @@
-def best_stock(a):
-    maximum = max(a.values())
-    for k, v in a.items():
-        if v == maximum:
-           return k
+def best_stock(data):
+    return max(data, key=lambda x: data[x])
 
 
 if __name__ == '__main__':
