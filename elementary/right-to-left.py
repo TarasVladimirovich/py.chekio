@@ -1,5 +1,6 @@
 def left_join(phrases):
     # ",".join(x.replace("right", "left") for x in phrases)
+    # tmp = ".".join(phrases).replace("right", "left")
     return ",".join(map(lambda x: x.replace("right", "left"), phrases))
 
 
