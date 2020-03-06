@@ -28,17 +28,18 @@ def checkio(text):
     count = 0
     lst = re.findall(r"[\w']+", text)
     for word in lst:
+        flag = True
         if len(word) == 1 or word.isdigit():
             continue
         if True in list(map(lambda x: x.isdigit(), word)):
             continue
-        flag = True
         for i in range(1, len(word)):
             if (word[i].upper() in VOWELS) == (word[i-1].upper() in VOWELS):
                 flag = False
         if flag:
             count += 1
     return count
+
 
 #These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
