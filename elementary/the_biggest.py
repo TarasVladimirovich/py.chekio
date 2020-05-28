@@ -6,7 +6,7 @@ def bigger_price(limit: int, data: list) -> list:
     #     for di in data:
     #         if di["price"] == i:
     #             tmp.append(di)
-    return sorted(data, key = lambda x: -x['price'])[:limit]
+    return sorted(data, key=lambda x: -x['price'])[:limit]
 
 
 if __name__ == '__main__':
