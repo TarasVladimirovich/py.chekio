@@ -14,10 +14,8 @@ def sum_light(els: List[datetime], start_watching: Optional[datetime] = None,
         els.append(end_watching)
         els.sort()
         end_index = els.index(end_watching)
-    print(all([start_watching, end_watching]))
     if not any([start_watching, end_watching]):
         return sum((els[i + 1] - els[i]).total_seconds() for i in range(start_index, end_index, 2))
-    print(end_index)
     return sum((els[i + 1] - els[i]).total_seconds() for i in range(start_index + (start_index % 2 == 0), end_index, 2))
 
 
