@@ -1,22 +1,14 @@
-
-a = [1, 2]
-b = [1, 2]
-print(a is b)
-print(a == b)
-
-
-
-# class AlwaysEqual(object):
-#     def __eq__(self, other):
-#         return True
+# import requests
+# import pprint
 #
+# peyload = {'username': 'takkoe', 'password': 'ananas'}
+# r = requests.get('https://httpbin.org/basic-auth/takkoe/ananas', auth=('takkoe', 'ananas'))
 #
-# instance = AlwaysEqual()
-#
-# print(instance == 42)#true
-# print(instance is 42)#false
-# print(instance is AlwaysEqual)#true
-# print(instance is instance)#true
-#
-# print(type(instance))
-# print(type(AlwaysEqual))
+# print(r)
+# print(r.status_code)
+# print(r.text)
+
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
+t = dir_path / "qwert"
+print(t)
