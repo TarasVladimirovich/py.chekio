@@ -1,2 +1,2 @@
 # my_test_project
-Test
+Py.Checkio and tasks
