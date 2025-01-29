@@ -1,12 +1,12 @@
 from datetime import datetime
 
 
-def spend_time(arg):
+def timer(name):
     def outer(func):
-        def wrapped(n):
+        def wrapped(*args, **kwargs):
             start = datetime.now()
-            result = func(n)
-            print(f'{func.__name__}: {datetime.now() - start}')
+            result = func(*args, **kwargs)
+            print(f"{func.__name__} {name}: {datetime.now() - start}")
             return result
 
         return wrapped
@@ -14,8 +14,8 @@ def spend_time(arg):
     return outer
 
 
-@spend_time('one')
-def one(value):
+@timer("one")
+def loop(value):
     l = []
     for i in range(value):
         if i % 2 == 0:
@@ -23,19 +23,22 @@ def one(value):
     return l
 
 
-@spend_time('two')
-def two(value):
+@timer("two")
+def list_compr(value):
     return [x for x in range(value) if x % 2 == 0]
 
 
-@spend_time('three')
-def three(value):
-    return list(filter(lambda x: x % 2 == 0, range(value)))
+@timer("three")
+def generator_(value):
+    return (x for x in range(value) if x % 2 == 0)
 
 
-l1 = one(10 ** 8)
-l2 = two(10 ** 8)
-l3 = three(10 ** 8)
+@timer("four")
+def filt(value):
+    return filter(lambda x: x % 2 == 0, range(value))
 
-# print(l1)
-# print(l2)
+
+l1 = loop(10 ** 8)
+l2 = list_compr(10 ** 8)
+l3 = generator_(10 ** 8)
+l4 = filt(10 ** 8)
